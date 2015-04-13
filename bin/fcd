@@ -1,0 +1,7 @@
+#!/bin/bash
+conf=~/.conf/fcd
+if [ ! -f $conf ]; then
+	echo "No fcd conf found"	
+	exit
+fi
+cat $conf
