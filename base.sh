@@ -8,7 +8,7 @@ touch "/usr/local/etc/path"
 echo '
 #import path
 for path in `cat /usr/local/etc/path`; do
-    PATH=$PATH:$path
+    export PATH=$PATH:$path
 done
 ' >> /etc/profile
 echo "[down]";

@@ -18,14 +18,17 @@ yum -y install libxml2-devel gd-devel libmcrypt-devel libcurl-devel openssl-deve
 echo "get source ... "
 srcget $srcurl_php $srcurl_libmcrypt $srcurl_mhash $srcurl_mcrypt
 
+echo "install libmcrypt ... "
 cd $dir_src/$(srcname $srcurl_libmcrypt)
 ./configure
 make && make install
 
+echo "install mhash ... "
 cd $dir_src/$(srcname $srcurl_mhash)
 ./configure
 make && make install
 
+echo "install mcrypt ... "
 cd $dir_src/$(srcname $srcurl_mcrypt)
 D_LIBRARY_PATH=/usr/local/lib ./configure
 make && make install
@@ -37,3 +40,4 @@ cd $dir_src/$(srcname $srcurl_php)
 make && make install
 
 cp php.ini-* $dir_prefix/etc/
+cp sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm

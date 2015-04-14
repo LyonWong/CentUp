@@ -1,1 +1,1 @@
-## CentOS start up
+## CentOS Startup
