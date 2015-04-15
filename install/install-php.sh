@@ -39,5 +39,7 @@ cd $dir_src/$(srcname $srcurl_php)
 
 make && make install
 
+useradd -rU php
 cp php.ini-* $dir_prefix/etc/
 cp sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
+chmod 755 /etc/init.d/php-fpm
