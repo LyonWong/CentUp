@@ -1,6 +1,6 @@
 
 dir_src="/usr/local/src"
-dir_download="/var/download"
+dir_download="/var/tmp"
 
 
 function target()
