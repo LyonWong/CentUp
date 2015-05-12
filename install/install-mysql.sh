@@ -2,7 +2,7 @@
 
 src_url="http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.22.tar.gz"
 src_dir="/usr/local/src"
-src_tar="/var/download/mysql.tar.gz"
+src_tar="/var/tmp/mysql.tar.gz"
 dir_base="/usr/local/mysql"
 dir_data="/var/data/mysql"
 
@@ -18,6 +18,7 @@ tar -zxf $src_tar -C $src_dir
 echo "[down]"
 
 
+cd $src_dir/mysql-*
 cmake -DMYSQL_USER=mysql -DCMAKE_INSTALL_PREFIX=$dir_base  -DMYSQL_UNIX_ADDR=$dir_base/mysql.sock -DDEFAULT_CHARSET=utf8  -DDEFAULT_COLLATION=utf8_general_ci -DEXTRA_CHARSETS=all -DWITH_EMBEDDED_SERVER=1 -DENABLED_LOCAL_INFILE=1 -DWITH_MYISAM_STORAGE_ENGINE=1 -DWITH_INNOBASE_STORAGE_ENGINE=1
 make
 make install
@@ -31,7 +32,7 @@ cp $dir_base/support-files/mysql.server /etc/init.d/mysqld
 echo "$dir_base/bin" >> $path_cnf
 chkconfig add mysqld
 chkconfig --level 2345 mysqld on
-echo "[donw]"
+echo "[down]"
 
 echo -e "Installing database ... \c"
 echo "
@@ -51,3 +52,4 @@ echo '
 Install completed.
 Please start mysql with `service mysqld start`
 and set password with `mysqladmin -u root password ***`
+'

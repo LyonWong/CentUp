@@ -1,5 +1,3 @@
-#_dir_=`cd $(dirname $0);pwd`
-#source $_dir_/../tools.sh
 
 dir_src="/usr/local/src"
 dir_download="/var/download"

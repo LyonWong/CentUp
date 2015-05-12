@@ -1,13 +1,12 @@
 #!/bin/bash
 source "`cd $(dirname $0);pwd`/common.sh"
 
-srcurl_php="http://cn2.php.net/distributions/php-5.6.7.tar.gz"
-srcurl_php="http://cn2.php.net/distributions/php-5.5.23.tar.gz"
+srcurl_php="http://cn2.php.net/distributions/php-5.6.8.tar.gz"
+dir_prefix="/usr/local/php-5.6"
+
 srcurl_libmcrypt="http://downloads.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz"
 srcurl_mhash="http://downloads.sourceforge.net/project/mhash/mhash/0.9.9.9/mhash-0.9.9.9.tar.gz"
 srcurl_mcrypt="http://downloads.sourceforge.net/project/mcrypt/MCrypt/2.6.8/mcrypt-2.6.8.tar.gz"
-dir_prefix="/usr/local/php-5.6"
-dir_prefix="/usr/local/php-5.5"
 
 
 echo "Start install PHP ... "
