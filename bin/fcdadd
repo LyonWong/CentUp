@@ -1,5 +1,0 @@
-#!/bin/bash
-conf=~/.conf/fcd
-
-echo $* >> $conf
-echo "$(uniq $conf)" > $conf
