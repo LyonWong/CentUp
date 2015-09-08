@@ -1,6 +1,7 @@
 #!/bin/bash
 source "`cd $(dirname $0);pwd`/common.sh"
 
+# config
 src_url="http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.22.tar.gz"
 dir_base="/usr/local/mysql"
 dir_data="/var/data/mysql"

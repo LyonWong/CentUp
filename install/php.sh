@@ -1,6 +1,7 @@
 #!/bin/bash
 source "`cd $(dirname $0);pwd`/common.sh"
 
+# config
 srcurl_php="http://cn2.php.net/distributions/php-5.6.8.tar.gz"
 dir_prefix="/usr/local/php-5.6"
 
