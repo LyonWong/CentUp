@@ -2,7 +2,7 @@
 source "`cd $(dirname $0);pwd`/common.sh"
 
 # config
-srcurl_php="http://cn2.php.net/distributions/php-5.6.8.tar.gz"
+srcurl_php="http://cn2.php.net/distributions/php-5.6.14.tar.gz"
 dir_prefix="/usr/local/php-5.6"
 
 srcurl_libmcrypt="http://downloads.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz"
@@ -12,11 +12,15 @@ srcurl_mcrypt="http://downloads.sourceforge.net/project/mcrypt/MCrypt/2.6.8/mcry
 
 echo "Start install PHP ... "
 echo "Preparing ... "
+
+read -p "Have prepared before? [y/n]" answer
+
+if [ $answer == 'n']; then
 yum -y groupinstall "Development tools"
 yum -y install libxml2-devel gd-devel libmcrypt-devel libcurl-devel openssl-devel
 
 echo "get source ... "
-srcget $srcurl_php $srcurl_libmcrypt $srcurl_mhash $srcurl_mcrypt
+srcget $srcurl_libmcrypt $srcurl_mhash $srcurl_mcrypt
 
 echo "install libmcrypt ... "
 cd $dir_src/$(srcname $srcurl_libmcrypt)
@@ -32,6 +36,9 @@ echo "install mcrypt ... "
 cd $dir_src/$(srcname $srcurl_mcrypt)
 D_LIBRARY_PATH=/usr/local/lib ./configure
 make && make install
+fi
+
+srcget $srcurl_php
 
 cd $dir_src/$(srcname $srcurl_php)
 ./configure --prefix=$dir_prefix --with-config-file-path="$dir_prefix/etc" --enable-fpm --enable-shared --enable-mbstring --enable-opcache --enable-mysqlnd --enable-zip --with-libxml-dir --with-gd --with-mcrypt --with-openssl --with-mysqli --with-mysql --with-zlib-dir --with-pdo-mysql --with-jpeg-dir --with-freetype-dir --with-curl

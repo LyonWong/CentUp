@@ -2,7 +2,7 @@
 source "`cd $(dirname $0);pwd`/common.sh"
 
 # config
-src_url="http://nginx.org/download/nginx-1.6.3.tar.gz"
+src_url="http://nginx.org/download/nginx-1.8.0.tar.gz"
 dir_prefix="/usr/local/nginx"
 
 echo "Preparing ... "

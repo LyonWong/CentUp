@@ -10,8 +10,9 @@ echo '
 for path in `cat /usr/local/etc/path`; do
     export PATH=$PATH:$path
 done
-' >> /etc/profile
+' > /etc/profile.d/path.sh
 echo "[down]";
+cp tools.sh /etc/profile.d/
 
 echo -e "Setting vimrc ... \c"
 echo '
@@ -24,4 +25,5 @@ echo "[done]"
 echo -e "Setting .bashrc ... \c"
 echo '
 alias du="du -h --max-depth=1"
-' >> ~/.bashrc
+' >> /etc/bashrc
+echo "[done]"
