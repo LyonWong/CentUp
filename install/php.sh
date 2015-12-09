@@ -2,7 +2,7 @@
 source "`cd $(dirname $0);pwd`/common.sh"
 
 # config
-srcurl_php="http://cn2.php.net/distributions/php-5.6.14.tar.gz"
+srcurl_php="http://cn2.php.net/distributions/php-5.6.15.tar.gz"
 dir_prefix="/usr/local/php-5.6"
 
 srcurl_libmcrypt="http://downloads.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz"
