@@ -38,3 +38,9 @@ pathadd()
 	echo $1 >> /usr/local/etc/path
 	export PATH=$PATH:$1
 }
+
+ssh-pass()
+{
+    eval `ssh-agent`
+    ssh-add ~/.ssh/$1.pem
+}
