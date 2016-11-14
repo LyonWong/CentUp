@@ -15,7 +15,7 @@ srcget $src_url
 
 
 cd $dir_src/$(srcname $src_url)
-./configure --prefix=$dir_prefix
+./configure --prefix=$dir_prefix --with-http_ssl_module
 make && make install
 
 cd /usr/local/sbin

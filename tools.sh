@@ -13,7 +13,7 @@ fcd()
 	fi
 	for item in `cat $cnf_fcd`; do
 		if [ ${item%%->*} == $name ]; then
-			cd ${item##*->}
+			cd ${item##*->}$2
 			return
 		fi
 	done
