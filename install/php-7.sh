@@ -2,10 +2,11 @@
 source "`cd $(dirname $0);pwd`/common.sh"
 
 # config
-srcurl_php="http://cn2.php.net/distributions/php-7.0.0.tar.gz"
-dir_prefix="/usr/local/php-7.0"
+srcurl_php="http://cn2.php.net/distributions/php-7.3.4.tar.gz"
+dir_prefix="/usr/local/php-7.3"
 
 srcurl_libmcrypt="http://downloads.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz"
+srcurl_libzip="https://nih.at/libzip/libzip-1.2.0.tar.gz"
 srcurl_mhash="http://downloads.sourceforge.net/project/mhash/mhash/0.9.9.9/mhash-0.9.9.9.tar.gz"
 srcurl_mcrypt="http://downloads.sourceforge.net/project/mcrypt/MCrypt/2.6.8/mcrypt-2.6.8.tar.gz"
 
@@ -24,6 +25,11 @@ srcget $srcurl_libmcrypt $srcurl_mhash $srcurl_mcrypt
 
 echo "install libmcrypt ... "
 cd $dir_src/$(srcname $srcurl_libmcrypt)
+./configure
+make && make install
+
+echo "install libzip ... "
+cd $dir_src/$(srcname $srcurl_libzip)
 ./configure
 make && make install
 
