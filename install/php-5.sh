@@ -15,7 +15,7 @@ echo "Preparing ... "
 
 read -p "Have prepared before? [y/n]" answer
 
-if [ $answer == 'n']; then
+if [ $answer == 'n' ]; then
 yum -y groupinstall "Development tools"
 yum -y install libxml2-devel gd-devel libmcrypt-devel libcurl-devel openssl-devel
 
