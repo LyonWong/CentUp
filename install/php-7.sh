@@ -2,8 +2,8 @@
 source "`cd $(dirname $0);pwd`/common.sh"
 
 # config
-srcurl_php="http://cn2.php.net/distributions/php-7.3.4.tar.gz"
-dir_prefix="/usr/local/php-7.3"
+srcurl_php="http://cn2.php.net/distributions/php-7.4.33.tar.gz"
+dir_prefix="/usr/local/php-7.4"
 
 srcurl_libmcrypt="http://downloads.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz"
 srcurl_libzip="https://nih.at/libzip/libzip-1.2.0.tar.gz"
@@ -17,8 +17,10 @@ echo "Preparing ... "
 read -p "Have prepared before? [y/n]" answer
 
 if [ $answer == 'n' ]; then
+yum install dnf-plugins-core
+yum config-manager --set-enabled PowerTools
 yum -y groupinstall "Development tools"
-yum -y install libxml2-devel gd-devel libmcrypt-devel libcurl-devel openssl-devel
+yum -y install libxml2-devel gd-devel libmcrypt-devel libcurl-devel openssl-devel sqlite-devel oniguruma-devel
 
 echo "get source ... "
 srcget $srcurl_libmcrypt $srcurl_mhash $srcurl_mcrypt
